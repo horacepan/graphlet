@@ -20,3 +20,53 @@ pip install -r requirements.txt
 pip install .
 ```
 
+## Sample Usage
+```
+import numpy as np
+from graphlet.graph import Graph
+from graphlet.node import Node
+from graphlet.cache import Cache
+
+
+class Data(Node):
+    def __init__(self, n: int):
+        self.n = n
+
+    def outputs(self) -> list[str]:
+        return ["data"]
+
+    def execute(self, cache: Cache):
+        data = np.arange(self.n)
+        cache["data"] = data
+
+
+class Square(Node):
+    def outputs(self) -> list[str]:
+        return ["squared"]
+
+    def execute(self, cache: Cache):
+        data = cache["data"]
+        squared = np.square(data)
+        cache["squared"] = squared
+
+
+class Aggregate(Node):
+    def outputs(self) -> list[str]:
+        return ["agg"]
+
+    def execute(self, cache: Cache):
+        agg = cache["squared"].sum()
+        cache["agg"] = agg
+
+
+cache = Cache("sample")
+g = Graph()
+fetch = g.add(Data(3))
+square = g.add(Square()).after(fetch)
+g.add(Aggregate()).after(square)
+g.execute(cache)
+
+# inspect contents of the cache
+for k, v in cache.cache.items():
+    print(f"{k}: {v}")
+```
