@@ -1,6 +1,6 @@
 import networkx as nx
-from node import Node
-from cache import Cache
+from .node import Node
+from .cache import Cache
 
 
 class Graph:

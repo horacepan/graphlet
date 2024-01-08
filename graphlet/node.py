@@ -1,7 +1,7 @@
 from typing import Optional
 import networkx as nx
 from abc import ABC, abstractmethod
-from cache import Cache
+from .cache import Cache
 
 
 class Node(ABC):
