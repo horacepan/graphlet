@@ -1,5 +1,6 @@
 # Graphlet
 ![Graphlet Logo](assets/graphlet_logo.png)
+Graphlet is a lightweight, Python library for defining computations in a graph-structured framework. It enables users to define workflows as a series of nodes, each representing a discrete computational task. Graphlet optimizes the development loop by skipping redundant computations, making it ideal for data processing and task automation in diverse applications.
 
 ## Installation
 1) First, clone the graphlet repository to your local machine:
