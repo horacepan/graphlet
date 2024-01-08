@@ -1,4 +1,5 @@
 # Graphlet
+![Graphlet Logo](https://github.com/horacepan/graphlet/assets/graphlet_logo.png)
 
 ## Installation
 1) First, clone the graphlet repository to your local machine:
