@@ -10,8 +10,8 @@ setup(
     author='Horace Pan',
     url='https://github.com/horacepan/graphlet',
     install_requires=[
-        "networkx",
+        "networkx", "numpy", "pandas", "matplotlib", "requests", "pydantic"
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.9',
 )
 
